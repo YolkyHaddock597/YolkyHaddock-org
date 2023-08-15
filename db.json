@@ -1,0 +1,16 @@
+{
+	"Addr1":
+	{
+		"Date": "",
+		"ParcelID": "",
+		"Property Address": "",
+		"Owner Name": "",
+        "AlternateID": "",
+        "School District": "",
+        "TaxCode": "",
+        "OwnerMailingaddr": "",
+        "NoLotArea": "",
+        "Municipality": "",
+        "Class": ""
+	}
+}
