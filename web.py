@@ -4,11 +4,6 @@ import re
 
 app = Flask(__name__)
 
-def validate_parcel_id(parcel_id):
-    # Use a regular expression to validate the format
-    pattern = r'^\d{3}-[A-Z]-\d{5}-\d{4}-\d{2}$'
-    return re.match(pattern, parcel_id)
-
 
 @app.route('/')
 def hello():
@@ -43,18 +38,7 @@ def submit_api():
 def search():
     if request.method == 'POST':
         search_query = request.form.get('search_query', '')
-
-        # Perform proper validation and filtering based on input type
-        if validate_parcel_id(search_query):
-            # Handle parcel ID search
-            # Your code here
-            result = "Parcel ID search result"
-        else:
-            # Handle address or name search
-            # Your code here
-            result = "Address or Name search result"
-
-        return render_template('search_results.html', result=result)
+        return render_template('search_results.html')
 
     return render_template('search_form.html')
 
