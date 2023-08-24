@@ -1,0 +1,22 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+  }
+  
+  .jumbotron h1,
+    .jumbotron p {
+      font-weight: bold;
+    }
+
+
+    .content {
+      flex: 1;
+    }
+    
+    /* Footer styles */
+    footer {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+    
