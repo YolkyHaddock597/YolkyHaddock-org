@@ -1,4 +1,31 @@
-/* Move down content because we have a fixed navbar that is 3.5rem tall */
+
 body {
   padding-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
+
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+  padding: 20px; /* Optional: Add padding to the content area */
+}
+
+footer {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background-color: #343a40; /* Optional: Set background color */
+  color: white; /* Optional: Set text color */
+  padding: 10px 0; /* Optional: Add padding to the footer */
+}
+

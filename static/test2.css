@@ -8,3 +8,16 @@ body {
       color: #FFFFFF;
       font-weight: bold;
     }
+
+
+    .content {
+      flex: 1;
+    }
+    
+    /* Footer styles */
+    footer {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+    

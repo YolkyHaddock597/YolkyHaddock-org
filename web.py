@@ -33,6 +33,13 @@ def submit_api():
     response = {'message': 'Data submitted successfully'}
     return jsonify(response)
 
+@app.route('/dev')
+def dev():
+    return render_template("dev.html")
+
+@app.errorhandler(404)
+def not_found(e):
+  return render_template("404.html")
 
 @app.route('/search', methods=['POST', 'GET'])
 def search():
