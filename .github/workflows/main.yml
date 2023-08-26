@@ -13,5 +13,5 @@ jobs:
     - name: Dastardly Scan
       uses: PortSwigger/dastardly-github-action@v1.0.0
       with:
-        target-url: yolkyhaddock.org
+        target-url: https://www.yolkyhaddock.org/page
         output-filename: dastardly-report.xml
