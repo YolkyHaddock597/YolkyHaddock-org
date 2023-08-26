@@ -1,9 +1,17 @@
-- name: Dastardly Scan Action
-  # You may pin to the exact commit or the version.
-  # uses: PortSwigger/dastardly-github-action@f72f38f8b4ac8ed59c69854cc77eb9d53e50e78b
-  uses: PortSwigger/dastardly-github-action@v1.0.0
-  with:
-    # The full url (including scheme) of the site to scan
-    target-url: yolkyhaddock.org
-    # The filename used for the scan report. This filepath relates to the dastardly container, and will exist in the github workspace (/github/workspace)
-    output-filename: # optional, default is dastardly-report.xml
+name: Dastardly Scan Action
+
+on: [push]
+
+jobs:
+  dastardly_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Dastardly Scan
+      uses: PortSwigger/dastardly-github-action@v1.0.0
+      with:
+        target-url: yolkyhaddock.org
+        output-filename: dastardly-report.xml
