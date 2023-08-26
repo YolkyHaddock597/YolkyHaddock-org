@@ -1,14 +1,9 @@
-steps:
-  - name: Run Dastardly Action Step
-    continue-on-error: true                        # This allows subsequent steps to run even if this step fails
-    uses: PortSwigger/dastardly-github-action@main
-    with:
-      target-url: 'https://yolkyhaddock.org'
-
-  # You can replace this next step with any JUnit XML parser of your choosing
-  - name: Publish Test Report
-    if: always()                                    # Forces this step to always run
-    uses: mikepenz/action-junit-report@v3
-    with:
-      report_paths: '**/dastardly-report.xml'       # You need to update this path if you pass in a different output filename to the Dastardly action
-      require_tests: true
+- name: Dastardly Scan Action
+  # You may pin to the exact commit or the version.
+  # uses: PortSwigger/dastardly-github-action@f72f38f8b4ac8ed59c69854cc77eb9d53e50e78b
+  uses: PortSwigger/dastardly-github-action@v1.0.0
+  with:
+    # The full url (including scheme) of the site to scan
+    target-url: yolkyhaddock.org
+    # The filename used for the scan report. This filepath relates to the dastardly container, and will exist in the github workspace (/github/workspace)
+    output-filename: # optional, default is dastardly-report.xml
