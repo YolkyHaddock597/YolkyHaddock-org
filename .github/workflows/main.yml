@@ -1,1 +1,17 @@
+name: Dastardly Scan Action
 
+on: [push]
+
+jobs:
+  dastardly_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Dastardly Scan
+      uses: PortSwigger/dastardly-github-action@v1.0.0
+      with:
+        target-url: https://www.yolkyhaddock.org/page
+        output-filename: .github/workflows/scan.xml
