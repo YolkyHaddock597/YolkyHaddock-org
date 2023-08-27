@@ -1,0 +1,29 @@
+
+
+body {
+    padding-top: 3.5rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Content, Footer */
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .content {
+    padding: 20px; /* Optional: Add padding to the content area */
+    overflow-y: auto; /* Enable scrolling for content if needed */
+  }
+.jumbotron h1,
+.jumbotron p {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+  
+  .flex-wrapper footer {
+    background: #444444;
+    height: 100px;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    padding: 20px;
+  }
+  
+  
