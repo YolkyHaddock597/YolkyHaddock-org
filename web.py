@@ -1,13 +1,10 @@
 from flask import Flask, request, render_template, jsonify, session, redirect
 
 
-#from flask_sqlalchemy import SQLAlchemy
-#from flask_session import Session
-
 import re
 import time
 import datetime
-
+from firebase_api import FireBaseInit
 
 #from auth import valid_credentials
 
@@ -16,18 +13,28 @@ app = Flask(__name__)
 
 
 
-#app.secret_key = "please enter new key"
+app.secret_key = "wterhyrthwhrwserthyndvk;'op'"
 
 app.config.update(
     SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
 )
+info = {
+"apiKey": "AIzaSyDnoZniQzYKSOppZPSOKe-YFlKTkMewWeQ",
+"authDomain": "yolkyhaddock-org.firebaseapp.com",
+"projectId": "yolkyhaddock-org",
+"storageBucket": "yolkyhaddock-org.appspot.com",
+"messagingSenderId": "836721534550",
+"appId": "1:836721534550:web:64ad47a449218593873df7",
+"measurementId": "G-F2379Q9VHD"
+}
 
-#We can set secure cookies in response
-#response.set_cookie('key', 'value', secure=True, httponly=True, samesite='Lax')
+config = None
 
+firebase = FireBaseInit(info, config)
 
+auth = firebase.auth()
 
 @app.route('/')
 def hello():
@@ -94,19 +101,27 @@ def price():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
-    # if request.method == "POST":
-    #     email = request.form.get('email')
-    #     password = request.form.get('password')
+    if('user' in session):
+        return redirect('/dashboard')
+    if request.method == "POST":
+        email = request.form.get('email')
+        password = request.form.get('password')
 
-    #     if valid_credentials(email, password):
-    #         session['email'] = email# Store user data in session
-    #         return redirect("/dashboard")
-    #     else:
-    #         if "email" in session:
-    #             return redirect("/dashboard")
-    #         return render_template("auth.html")
+        try:
+            val = auth.sign_in_with_email_and_password(email, password)
+            session['user'] = email
+            print("Good")
+            return redirect('/dashboard')
+        except:
+            print("incorect login or password")
+
+
     return render_template("auth.html")
 
+@app.route("/logout")
+def logout():
+    session.pop('user')
+    return redirect('/')
 
 # @app.route('/sessionLogin', methods=['POST'])
 # def session_login():
