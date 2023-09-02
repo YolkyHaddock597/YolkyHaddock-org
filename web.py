@@ -21,13 +21,7 @@ app.config.update(
     SESSION_COOKIE_SAMESITE='Lax',
 )
 info = {
-"apiKey": "AIzaSyDnoZniQzYKSOppZPSOKe-YFlKTkMewWeQ",
-"authDomain": "yolkyhaddock-org.firebaseapp.com",
-"projectId": "yolkyhaddock-org",
-"storageBucket": "yolkyhaddock-org.appspot.com",
-"messagingSenderId": "836721534550",
-"appId": "1:836721534550:web:64ad47a449218593873df7",
-"measurementId": "G-F2379Q9VHD"
+
 }
 
 config = None
