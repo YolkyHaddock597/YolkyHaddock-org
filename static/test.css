@@ -20,3 +20,7 @@ body {
   padding: 20px;
 }
 
+
+.custom-padding {
+  padding-bottom: 40px; /* Adjust the value as needed */
+}

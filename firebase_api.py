@@ -2,7 +2,14 @@ import requests
 from requests import Session
 from requests.exceptions import HTTPError
 import json
+from collections import OrderedDict
+import os
 
+path = os.environ["FIREBASE_KEY"]
+info = {"apiKey": path,}
+
+
+URL_LOGIN = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
 
 def raise_detailed_error(request_object):
     try:
@@ -13,7 +20,7 @@ def raise_detailed_error(request_object):
 
 class FireBaseInit:
     """ Initailizes Firebase """
-    def __init__(self, info, config):
+    def __init__(self, config):
         self.info = info
         self.config = config
         self.requests = requests.Session()
@@ -25,7 +32,7 @@ class FireBaseInit:
 
     
 class Auth:
-    """ Authentication Service """
+    """ Authentication """
     def __init__(self, api_key, requests, credentials):
         self.api_key = api_key
         self.current_user = None
@@ -33,7 +40,7 @@ class Auth:
         self.credentials = credentials
 
     def sign_in_with_email_and_password(self, email, password):
-        request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(self.api_key)
+        request_ref = f"{URL_LOGIN}?key={self.api_key}"
         headers = {"content-type": "application/json; charset=UTF-8"}
         data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
         request_object = requests.post(request_ref, headers=headers, data=data)
@@ -41,17 +48,11 @@ class Auth:
         self.current_user = request_object.json()
         return request_object.json()
     
-info = {
-    
-}
 
-config = None
-
-firebase = FireBaseInit(info, config)
-
-auth = firebase.auth()
-try:
-    val = auth.sign_in_with_email_and_password("loganmx10@gmail.com", "hj")
-
-except:
-    print("incorect login or password")
+class Data:
+    """firestore"""
+    def __init__(self, api_key, requests, credentials):
+        self.api_key = api_key
+        self.current_user = None
+        self.requests = requests
+        self.credentials = credentials
