@@ -36,7 +36,6 @@ class User(UserMixin):
     def __init__(self, user_id):
         self.id = user_id
 
-users = {'user1': {'password': 'password1'}, 'user2': {'password': 'password2'}}
 
 @login_Manager.user_loader
 def load_user(user_id):
