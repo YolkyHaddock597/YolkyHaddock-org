@@ -1,4 +1,7 @@
-
+.alert-custom{
+  background-color:red;
+  color:#fff;
+}
 
 body {
     padding-top: 3.5rem;

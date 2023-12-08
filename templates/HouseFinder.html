@@ -17,7 +17,12 @@
 <body>
 	<script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-	{% include 'Header.html' %}
+	{% include 'header_without_news.html' %}
+	<div class="container mt-4">
+		<div class="alert alert-custom  fade in alert-dismissable show" role="alert" id-="warning_id"> <strong>WARNING:</strong> Project Depricated. Development has stopped and will be replaced by a new product in the future. <a href="#" class="alert-link">Read more</a>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+		</div>
+	</div>
 	<main role="main">
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron" style="background-image: url('static/pic3.jpg'); background-size: cover;">
