@@ -145,6 +145,11 @@ def login():
 def profile():
     return f'Welcome to your profile, {current_user.id}!'
 
+@app.route('/horseshoe')
+@login_required
+def horseshoe():
+    return render_template("horseshoe.html")
+
 @app.route('/logout')
 @login_required
 def logout():
