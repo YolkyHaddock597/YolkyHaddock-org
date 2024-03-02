@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search Solver</title>
+   	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<!-- Bootstrap core CSS -->
+	<link href="/static/thing.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="/static/test.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+
+    <script src="static/wordsrc.js"></script>
+    <link rel="stylesheet" href="static/wordsrc.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2555844384373555"crossorigin="anonymous"></script>
+</head>
+{% include 'googleana.html' %}
+
+<body>
+    {% include 'header_without_news.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h2>Word Search Solver</h2>
+                <p id="clickme" onclick="fillex()">Click Here to fill in example bank</p>
+                <p>Please enter all letters without a space, newline, or comma.</p>
+                <div class="form-group purple-border">
+                    <label for="exampleFormControlTextarea4">Letters</label>
+                    <textarea class="form-control" id="letters" rows="3"></textarea>
+                </div>
+                <br>
+                <p>Please enter the words in a comma separated list.</p>
+                <div class="form-group purple-border">
+                    <label for="exampleFormControlTextarea4">Words</label>
+                    <textarea class="form-control" id="Words" rows="3"></textarea>
+                </div>
+                <br>
+
+            </div>
+        </div>
+        <div class="row">
+            <p>Enter the height and width of the word search</p>
+            <div class="col">
+                <input type="text" class="form-control mb-3" id="x" placeholder="Width">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control mb-3" id="y" placeholder="Height">
+            </div>
+            <button type="button" onclick="getVals()" class="btn mr-2">Solve</button>
+            <button type="button" onclick="clear_all()" class="btn">Clear</button>            
+        </div>
+        <br>
+        <br>
+        <p>When you input the required data and press "Solve" a list will appear containing the words and the location of them. The coordinates represent the location of the first letter in the word.</p>
+        <p id="dsp"></p>
+        <ol id="dsp2"></ol>
+
+        <br>
+        <br>
+
+        <a href="https://github.com/YolkyHaddock597/wordsearch/">Source Code</a>
+
+        <p>example words search created by: <a href="https://qets.com">www.qets.com</a></p>
+
+
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $('#integerInput').on('input', function () {
+            var value = $(this).val();
+            if (!(/^\d+$/.test(value))) {
+                $(this).addClass('is-invalid');
+            } else {
+                $(this).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
+{% include 'footer.html' %}
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</html>

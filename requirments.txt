@@ -1,0 +1,5 @@
+Flask
+flask-login
+-U Flask-WTF
+Flask-Limiter
+requests

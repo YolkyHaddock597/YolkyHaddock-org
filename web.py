@@ -64,7 +64,7 @@ def terms():
 
 @app.route("/HouseFinder")
 def HouseFinder():
-    return render_template("HouseFinder.html")
+    return redirect("/")
 
 @app.route("/Download")
 def Download():
@@ -145,10 +145,6 @@ def login():
 def profile():
     return f'Welcome to your profile, {current_user.id}!'
 
-@app.route('/horseshoe')
-@login_required
-def horseshoe():
-    return render_template("horseshoe.html")
 
 @app.route('/logout')
 @login_required
@@ -167,6 +163,10 @@ def reg():
 @login_required
 def dashboard():
     return render_template("dashboard.html")
+
+@app.route("/word-search-solver")
+def word():
+    return render_template("wordsrc.htm")
 
 
 if __name__ == "__main__":

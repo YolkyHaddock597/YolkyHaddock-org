@@ -5,8 +5,8 @@ import json
 from collections import OrderedDict
 import os
 
-path = os.environ["FIREBASE_KEY"]
-info = {"apiKey": path,}
+#path = os.environ["FIREBASE_KEY"]
+info = {"apiKey": "key",}
 
 
 URL_LOGIN = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword"
